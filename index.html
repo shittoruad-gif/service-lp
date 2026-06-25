@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>株式会社しっとる｜集客サービスのご案内</title>
+<meta name="description" content="SNS・Web広告の「作る→集める→計測する→改善する」を、すべて自社開発のツールでご支援。スレッドスタジオ／マカセル／Keiro／LP制作のご案内。" />
+<style>
+  :root{
+    --green:#1C3F3A; --green-700:#163029; --orange:#C0562A; --orange-600:#a8481f;
+    --cream:#F7F4EE; --ink:#23211d; --muted:#6b6760; --line:#e5e0d6; --white:#fff;
+    --radius:16px; --shadow:0 6px 28px rgba(28,63,58,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    color:var(--ink); background:var(--cream); line-height:1.8; -webkit-font-smoothing:antialiased;
+  }
+  .num{font-family:"JetBrains Mono",ui-monospace,monospace}
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* HERO */
+  header.hero{
+    background:linear-gradient(160deg,var(--green) 0%,var(--green-700) 100%);
+    color:#fff;padding:72px 0 88px;position:relative;overflow:hidden;
+  }
+  header.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;
+    background:radial-gradient(circle,rgba(192,86,42,.35),transparent 70%);border-radius:50%}
+  .brand{font-size:14px;letter-spacing:.18em;opacity:.85;margin-bottom:22px}
+  .hero h1{font-size:clamp(28px,5vw,46px);line-height:1.4;font-weight:800;letter-spacing:.01em}
+  .hero h1 .hl{color:#ffd9a8}
+  .hero p.lead{margin-top:22px;font-size:clamp(15px,2.2vw,19px);max-width:680px;opacity:.95}
+  .hero .pill{display:inline-block;margin-top:30px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);padding:8px 18px;border-radius:999px;font-size:13px}
+
+  /* FLOW */
+  section{padding:64px 0}
+  .eyebrow{color:var(--orange);font-weight:800;letter-spacing:.12em;font-size:13px;text-align:center}
+  h2.sec{text-align:center;font-size:clamp(22px,3.4vw,30px);font-weight:800;margin:10px 0 8px}
+  .sec-note{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px}
+
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .flow .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 16px;text-align:center;position:relative}
+  .flow .step .n{font-size:12px;font-weight:800;color:var(--orange);letter-spacing:.1em}
+  .flow .step .role{font-size:12px;color:var(--muted);margin-top:6px}
+  .flow .step .name{font-weight:800;margin-top:8px;font-size:16px}
+  .flow .step .arrow{display:none}
+  @media(max-width:760px){
+    .flow{grid-template-columns:1fr 1fr}
+  }
+
+  /* SERVICE CARDS */
+  .cards{display:flex;flex-direction:column;gap:28px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+    box-shadow:var(--shadow);display:grid;grid-template-columns:1.5fr 1fr}
+  .card .body{padding:34px}
+  .card .side{background:var(--cream);border-left:1px solid var(--line);padding:34px;display:flex;flex-direction:column}
+  .badge{display:inline-block;background:var(--green);color:#fff;font-weight:800;font-size:12px;
+    padding:5px 12px;border-radius:999px;letter-spacing:.08em}
+  .card h3{font-size:22px;font-weight:800;margin:14px 0 4px}
+  .card .sub{color:var(--orange);font-weight:700;font-size:14px;margin-bottom:14px}
+  .for{background:var(--cream);border-radius:12px;padding:12px 16px;font-size:14px;margin:14px 0 18px}
+  .for b{color:var(--green)}
+  .feat{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:6px}
+  .feat li{position:relative;padding-left:26px;font-size:15px}
+  .feat li::before{content:"✓";position:absolute;left:0;top:0;color:var(--orange);font-weight:800}
+
+  .price-label{font-size:12px;color:var(--muted);letter-spacing:.08em;font-weight:700}
+  .price-main{font-size:26px;font-weight:800;color:var(--green);margin:4px 0 14px;line-height:1.3}
+  .price-main .num{font-size:32px}
+  .ptable{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+  .ptable td{padding:7px 0;border-bottom:1px dashed var(--line)}
+  .ptable td:last-child{text-align:right;font-weight:700;font-family:"JetBrains Mono",monospace}
+  .cta{margin-top:auto;padding-top:20px}
+  .btn{display:block;text-align:center;background:var(--orange);color:#fff;text-decoration:none;
+    font-weight:800;padding:14px 18px;border-radius:12px;transition:.15s;font-size:15px}
+  .btn:hover{background:var(--orange-600)}
+  .btn.alt{background:var(--green)}
+  .btn.alt:hover{background:var(--green-700)}
+  .btn-note{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){
+    .card{grid-template-columns:1fr}
+    .card .side{border-left:none;border-top:1px solid var(--line)}
+  }
+
+  /* PATTERNS */
+  .patterns{background:var(--green);color:#fff}
+  .patterns .eyebrow{color:#ffd9a8}
+  .patterns h2.sec{color:#fff}
+  .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+  .pcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:22px}
+  .pcard .q{font-weight:800;font-size:16px}
+  .pcard .a{margin-top:10px;color:#ffd9a8;font-weight:700}
+  @media(max-width:760px){.pgrid{grid-template-columns:1fr}}
+
+  /* CONTACT */
+  .contact{text-align:center}
+  .contact h2{font-size:26px;font-weight:800}
+  .contact p{color:var(--muted);margin-top:10px}
+  .contact .mail{display:inline-block;margin-top:24px;background:var(--orange);color:#fff;
+    text-decoration:none;font-weight:800;padding:16px 38px;border-radius:12px;font-size:17px}
+  .contact .mail:hover{background:var(--orange-600)}
+
+  footer{background:var(--green-700);color:rgba(255,255,255,.8);text-align:center;padding:30px 20px;font-size:13px}
+  .disclaimer{max-width:760px;margin:20px auto 0;font-size:12px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">株式会社しっとる ─ SHITTORU INC.</div>
+    <h1>集客の「作る・集める・<span class="hl">計測する</span>・改善する」を<br>ぜんぶ、ひとつに。</h1>
+    <p class="lead">SNS運用・Web広告・ホームページ。バラバラだった集客を、自社開発のツールで一気通貫に。
+      広告費をムダにせず、「どの集客が・実際に申し込みにつながったか」を数字で追える仕組みをご提供します。</p>
+    <span class="pill">SNS投稿 × 広告運用 × 流入計測 × 集客ページ制作</span>
+  </div>
+</header>
+
+<!-- FLOW -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow">4つのサービスは「集客の流れ」でつながっています</p>
+    <h2 class="sec">単品でも、組み合わせても効く</h2>
+    <p class="sec-note">それぞれ独立してご利用いただけますが、つなげることで「集客の入口から成約まで」が1本の線になります。</p>
+    <div class="flow">
+      <div class="step"><div class="n">STEP 1</div><div class="role">受け皿をつくる</div><div class="name">LP制作</div></div>
+      <div class="step"><div class="n">STEP 2</div><div class="role">広告で集める</div><div class="name">マカセル</div></div>
+      <div class="step"><div class="n">STEP 3</div><div class="role">無料で認知を広げる</div><div class="name">スレッドスタジオ</div></div>
+      <div class="step"><div class="n">STEP 4</div><div class="role">計測して改善する</div><div class="name">Keiro</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cards">
+
+      <!-- 1 スレッドスタジオ -->
+      <article class="card" id="threads">
+        <div class="body">
+          <span class="badge">SERVICE 01 ／ SNS投稿の自動化</span>
+          <h3>スレッドスタジオ</h3>
+          <div class="sub">Threads（スレッズ）投稿の作成 〜 自動投稿ツール</div>
+          <div class="for">こんな方へ：<b>「何を投稿すればいいか分からない」「SNSが続かない」</b>店舗・サロン経営者の方</div>
+          <p>いま伸びているThreadsを、専門知識ゼロで運用。テンプレートを選んで店舗情報を入力するだけで、AIが反応の取れる投稿文を作成し、予約・自動投稿まで行います。</p>
+          <ul class="feat">
+            <li>反応の取れる4種類のテンプレート（共感／FAQ／体験談／チェックリスト型）</li>
+            <li>AIがフック（1行目）案・ハッシュタグを自動生成</li>
+            <li>広告規制・誇大表現を自動回避する安全フィルタ</li>
+            <li>曜日・時間を決めれば、あとは予約・自動投稿</li>
+            <li>複数店舗・複数アカウントの一括管理、週次レポート</li>
+          </ul>
+        </div>
+        <div class="side">
+          <div class="price-label">月額料金（無料プランあり）</div>
+          <div class="price-main">有料は <span class="num">¥6,980</span> 〜</div>
+          <table class="ptable">
+            <tr><td>フリー</td><td>¥0</td></tr>
+            <tr><td>スタンダード</td><td>¥6,980</td></tr>
+            <tr><td>プロ</td><td>¥9,800</td></tr>
+            <tr><td>ビジネス</td><td>¥29,800</td></tr>
+            <tr><td>代理店</td><td>¥55,000</td></tr>
+          </table>
+          <div class="cta">
+            <a class="btn" href="https://threads-studio.com" target="_blank" rel="noopener">無料で試してみる →</a>
+            <div class="btn-note">リンク先：サービスサイト（無料登録）</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 マカセル -->
+      <article class="card" id="makaseru">
+        <div class="body">
+          <span class="badge">SERVICE 02 ／ Web広告の自動運用</span>
+          <h3>マカセル</h3>
+          <div class="sub">Instagram（Meta）広告を、AIでセルフ運用</div>
+          <div class="for">こんな方へ：<b>「代理店に丸投げで中身が見えない」「自分で広告運用は難しそう」</b>とお悩みの方</div>
+          <p>Instagram・Facebook広告の広告文・画像・動画を、AIが自動で複数案を生成。出稿後は効果を分析し「次に何をすべきか」まで提案します。専門の運用担当がいなくても、プロ品質の広告運用が回せます。</p>
+          <ul class="feat">
+            <li>商材を登録するだけで、コピー・画像・動画をAIが自動生成</li>
+            <li>薬機法などのコンプライアンスを機械チェック（NG表現を警告）</li>
+            <li>配信結果の自動分析と、改善アクションの提案</li>
+            <li>運用の相談ができるAIチャット内蔵</li>
+          </ul>
+        </div>
+        <div class="side">
+          <div class="price-label">運用料金（成果連動）</div>
+          <div class="price-main">広告費 × <span class="num">20%</span></div>
+          <table class="ptable">
+            <tr><td>最低運用費</td><td>¥11,000/月</td></tr>
+            <tr><td>例）広告費10万円</td><td>運用2万円</td></tr>
+            <tr><td>例）広告費5万円以下</td><td>一律1.1万円</td></tr>
+          </table>
+          <p style="font-size:12px;color:var(--muted);margin-top:10px">※広告費はお客様がMetaへ直接お支払い</p>
+          <div class="cta">
+            <a class="btn" href="mailto:shittoru@s-toru.com?subject=マカセルに関するお問い合わせ">お問い合わせ →</a>
+            <div class="btn-note">リンク先：メールでお問い合わせ</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 Keiro -->
+      <article class="card" id="keiro">
+        <div class="body">
+          <span class="badge">SERVICE 03 ／ 公式LINEの流入計測</span>
+          <h3>Keiro（ケイロ）</h3>
+          <div class="sub">公式LINEの「どの広告から友だち追加されたか」を可視化</div>
+          <div class="for">こんな方へ：<b>「広告は出しているが、本当にLINE登録や来院につながっているのか分からない」</b>方</div>
+          <p>広告のクリックから公式LINEの友だち追加までを、面倒な認証画面なしで自動でひも付け。その成果をMeta・TikTok広告へ自動でフィードバックすることで、広告のAIが学習し、配信精度が上がっていきます。</p>
+          <ul class="feat">
+            <li>広告クリック → LINE友だち追加を自動ひも付け（登録のじゃまをしません）</li>
+            <li>Meta / TikTok へのコンバージョン自動連携（CV最適化）</li>
+            <li>整体院・整骨院向けに最適化（複数店舗の分離管理に対応）</li>
+            <li>個人情報は暗号化保存・自動削除で安心</li>
+          </ul>
+        </div>
+        <div class="side">
+          <div class="price-label">月額料金（14日間 無料トライアル）</div>
+          <div class="price-main"><span class="num">¥4,980</span> /月</div>
+          <table class="ptable">
+            <tr><td>スタンダードプラン</td><td>¥4,980</td></tr>
+            <tr><td>無料トライアル</td><td>14日間</td></tr>
+          </table>
+          <div class="cta">
+            <a class="btn alt" href="mailto:shittoru@s-toru.com?subject=Keiroに関するお問い合わせ">お問い合わせ →</a>
+            <div class="btn-note">リンク先：メールでお問い合わせ</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 LP制作 -->
+      <article class="card" id="lp">
+        <div class="body">
+          <span class="badge">SERVICE 04 ／ 集客ページ制作</span>
+          <h3>LP制作</h3>
+          <div class="sub">成約につながる「勝ちパターン」に沿った集客ページ制作</div>
+          <div class="for">こんな方へ：<b>「ページはあるが問い合わせが来ない」「広告の受け皿が弱い」</b>方</div>
+          <p>数多くの成功事例から導いた“集客LPの黄金構成（10ステップ）”に沿って制作。AIを活用した制作フローで、スピーディかつ高品質にご提供します。広告（マカセル）の受け皿として最適化された、申し込みに直結するページをつくります。</p>
+          <ul class="feat">
+            <li>治療院・店舗ビジネスで実証済みの黄金構成テンプレートに準拠</li>
+            <li>ファーストビュー・お客様の声・料金・FAQ・申込導線まで網羅</li>
+            <li>スマホ最適化／表示速度を考慮した設計</li>
+            <li>計測タグ・LINE導線など、他サービスとの連携込みで制作可能</li>
+          </ul>
+        </div>
+        <div class="side">
+          <div class="price-label">制作代行</div>
+          <div class="price-main">要お見積り</div>
+          <table class="ptable">
+            <tr><td>ご予算・ページ数</td><td>個別ご提案</td></tr>
+            <tr><td>他サービス連携</td><td>対応可</td></tr>
+          </table>
+          <div class="cta">
+            <a class="btn alt" href="#contact">制作を相談する →</a>
+            <div class="btn-note">リンク先：お問い合わせ（メール）</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PATTERNS -->
+<section class="patterns">
+  <div class="wrap">
+    <p class="eyebrow">どれから始めればいい？</p>
+    <h2 class="sec">おすすめの導入パターン</h2>
+    <div class="pgrid">
+      <div class="pcard"><div class="q">まず手軽にSNS集客を始めたい</div><div class="a">→ スレッドスタジオ（無料から）</div></div>
+      <div class="pcard"><div class="q">広告で本格的に新規を集めたい</div><div class="a">→ LP制作 ＋ マカセル</div></div>
+      <div class="pcard"><div class="q">広告の費用対効果を正確に知りたい</div><div class="a">→ マカセル ＋ Keiro</div></div>
+      <div class="pcard"><div class="q">集客を“仕組み”として完成させたい</div><div class="a">→ 4つすべて（一気通貫パッケージ）</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>「うちの場合どれが合う？」というご相談だけでも歓迎です。導入規模・組み合わせに応じて個別にお見積りいたします。</p>
+    <a class="mail" href="mailto:shittoru@s-toru.com?subject=サービスに関するお問い合わせ">メールで問い合わせる</a>
+    <p style="margin-top:14px;font-size:14px">shittoru@s-toru.com</p>
+    <p class="disclaimer">※ 記載の価格は標準プランの目安です。仕様・料金は予告なく変更される場合があります。</p>
+  </div>
+</section>
+
+<footer>
+  © 株式会社しっとる SHITTORU INC. ／ スレッドスタジオ・マカセル・Keiro・LP制作
+</footer>
+
+</body>
+</html>
