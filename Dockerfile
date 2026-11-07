@@ -2,6 +2,7 @@ FROM nginx:1.27-alpine
 
 # 静的サービス紹介ページを配信
 COPY index.html /usr/share/nginx/html/
+COPY assets /usr/share/nginx/html/assets
 
 # IPv4/IPv6 両方で待受。ヘルスチェック互換のため [::]:80 も listen
 RUN printf 'server {\n\
