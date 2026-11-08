@@ -506,7 +506,8 @@ footer{padding-block:40px 32px;font-size:13px;color:var(--sub);border-top:1px so
             <span>別途の実費</span><span class="n" id="simExt">なし</span>
           </div>
           <p id="simNote">左の一覧から、気になるサービスに印をつけてください。</p>
-          <a class="btn main" href="https://forms.gle/pykh67HNXvwQ4rcdA" target="_blank" rel="noopener">この内容で無料相談する</a>
+          <a class="btn main" id="simCta" href="https://forms.gle/pykh67HNXvwQ4rcdA" target="_blank" rel="noopener">この内容で無料相談する</a>
+          <p>選んだサービスと金額の目安が入った状態で、相談フォームが開きます。</p>
         </aside>
       </div>
       <p class="note" style="margin-top:12px">交通事故コンサルティング（3ヶ月 600,000円〜・税別）と月刊 HANDS NOTE（正式リリース時に価格決定）は、シミュレーターに含めていません。2026年11月6日時点の料金です。</p>
@@ -589,6 +590,17 @@ footer{padding-block:40px 32px;font-size:13px;color:var(--sub);border-top:1px so
 
 <script>
 var FORM='https://forms.gle/pykh67HNXvwQ4rcdA';
+/* 無料相談フォームを、選んだサービス・業種・目安金額が入った状態で開く */
+var FORM_BASE='https://docs.google.com/forms/d/e/1FAIpQLScQxGrWcsL7z5hQ7KLK3hqWy9I5c64KNhe9HicYCiDJB3c03Q/viewform?usp=pp_url';
+var FORM_CHOICE={threads:'Threads自動投稿アプリ',makaseru:'マカセル（Instagram広告セルフ運用アプリ）',lp:'LP（ランディングページ）作成',keiro:'Keiro（公式LINEの流入経路計測ツール）',salonkarte:'サロンカルテ（予約・電子カルテ管理システム）',kuchikomi:'口コミ作成アプリ制作',salonos:'サロンOS（集客・運営まるごとおまかせプラン）'};
+var FORM_IND={food:'飲食店・カフェ',salon:'美容室・美容サロン',clinic:'整骨院・整体院・鍼灸院'};
+function formUrl(ids,note,ind){
+ var q=FORM_BASE+'&entry.1899235812='+encodeURIComponent('サービス紹介ページ・資料を見た');
+ (ids||[]).forEach(function(id){if(FORM_CHOICE[id])q+='&entry.229892982='+encodeURIComponent(FORM_CHOICE[id])});
+ if(ind&&FORM_IND[ind])q+='&entry.1555741521='+encodeURIComponent(FORM_IND[ind]);
+ if(note)q+='&entry.1064625872='+encodeURIComponent(note);
+ return q}
+function ctaHref(s){return s.cta[1]===FORM?formUrl([s.id],s.name+'について相談したい'):s.cta[1]}
 var DOC='https://shittoruad-gif.github.io/shittoru-service-docs/v/';
 
 /* ===== 画面イメージ ===== */
@@ -621,16 +633,16 @@ var S=[
  cta:['7日間無料で試す','https://threads-studio.com'],lp:'https://shittoruad-gif.github.io/threads-studio-lp/',video:'https://www.youtube.com/watch?v=XVB4AbYvm_g',doc:'threads',pair:['lp','keiro']},
 
 {id:'makaseru',stage:1,name:'マカセル',status:'live',
- tl:'Instagram・Facebook広告を、アプリで自分で。しっとるにおまかせも。',
- one:'広告の文章・画像を自動で作り、お店の写真・動画からショート動画も作れます。結果の分析と「次にどうするか」の提案まで。広告表現のチェックも自動です。',
- target:'業種を問わず、広告を始めたい・任せたいお店・事業者',
- from:19800,fromLabel:'19,800',unit:'円/月〜',tags:['7日間無料','縛りなし','初期0円'],
- pains:['広告の文章・画像・動画を自分で用意できない','外注するほどの予算はない','広告を自分で回したいが、何が正解か分からない'],
- flow:[['you','メニューを登録します'],['we','広告の文章・画像の案をまとめて作成。写真・動画からショート動画も作れます'],['you','気に入った案を選び、手順どおりに広告を出します'],['we','配信結果を自動で分析し、次の一手を提案します']],
- outs:['すぐ出せる広告素材一式（文章・画像・ショート動画）','はじめの設定（Meta広告の準備から最初の広告まで・Zoom）','毎週月曜の朝、成績レポートを公式LINEでお届け','しっとるが作って出す広告・ショート動画（毎月）'],
+ tl:'広告運用は、しっとるに丸投げ。動画づくりやInstagramの運用は、自分でもできる。',
+ one:'Instagram・Facebook広告の作成・出稿・入れ替えは、しっとるの担当がサポートするので、基本はおまかせで回ります。そのうえで、お店の写真・動画からショート動画を作ったり、自分で広告を出してみたりもできるので、広告とInstagramの投稿・リール運用を同時に進められます。',
+ target:'業種を問わず、広告を任せつつ、Instagramも育てたいお店・事業者',
+ from:19800,fromLabel:'19,800',unit:'円/月〜',tags:['運用おまかせ','7日間無料','縛りなし'],
+ pains:['広告を任せたいが、代行は高いうえに中身が見えない','Instagramのリールや投稿まで、手が回らない','広告の文章・画像・動画を、自分では用意できない'],
+ flow:[['we','はじめの設定（Meta広告の準備・お店の登録）をZoomで一緒に行います'],['we','しっとるが広告とショート動画を作って出し、成績を見て入れ替えます'],['you','撮った写真・動画から、ショート動画を自分でも作れます。Instagramの投稿・リールにもそのまま使えます'],['you','慣れてきたら、自分で広告を出してみることもできます'],['we','毎週月曜の朝、成績と「次にどうするか」を公式LINEでお届けします']],
+ outs:['しっとるが作って出す広告・ショート動画（毎月）と入れ替え','自分でも使える制作アプリ（広告文・画像・ショート動画）','Instagramの投稿・リールに使える素材','毎週月曜の朝、成績レポートを公式LINEでお届け','はじめの設定（Meta広告の準備から最初の広告まで・Zoom）'],
  plans:[{n:'ライト',p:'19,800',u:'円/月',rec:1,f:['作成 月60本','広告アカウント 1','しっとる制作 月1本']},{n:'プロ',p:'33,000',u:'円/月',f:['作成 月120本','広告アカウント 3','しっとる制作 月3本']},{n:'ビジネス',p:'49,500',u:'円/月',f:['作成 月200本','広告アカウント 6','しっとる制作 月5本']}],
  terms:[['無料お試し','7日間（期間中の解約は0円）'],['縛り','なし'],['初期費用','0円'],['年払い','11か月分']],
- res:[['約1/3','広告のクリック単価（7月の手作業の広告 平均約57円 → マカセルで作った広告 平均約18円）'],['14円','いちばん良かった広告のクリック単価（整体・1日500円・2026年10〜11月）'],['100店舗以上','広告運用の経験から作った、広告づくりの型を搭載']],  faq:[['広告の出稿までやってくれますか？','お店の登録とMetaとの接続はしっとるが行います。どのプランでも、広告・ショート動画を作って出す・入れ替えるまで代わりに行う分が含まれます。'],['動画の素材は何を用意すれば？','お店で撮った動画がいちばんです（なければ写真）。撮り方の案内が画面と公式LINEに自動で届きます。'],['自分で触る時間がないのですが？','大丈夫です。どのプランでも、しっとるが広告・ショート動画を作って出し、入れ替えまで行います。ご自身はLINEに届く毎週のレポートを見るだけでも使えます。']],
+ res:[['約1/3','広告のクリック単価（7月の手作業の広告 平均約57円 → マカセルで作った広告 平均約18円）'],['14円','いちばん良かった広告のクリック単価（整体・1日500円・2026年10〜11月）'],['100店舗以上','広告運用の経験から作った、広告づくりの型を搭載']],  faq:[['広告は丸投げできますか？','できます。お店の登録とMetaとの接続はしっとるが行い、どのプランでも広告・ショート動画を作って出す・入れ替えるところまで、しっとるが担当します。'],['動画の素材は何を用意すれば？','お店で撮った動画がいちばんです（なければ写真）。撮り方の案内が画面と公式LINEに自動で届きます。'],['自分でも触れますか？','はい。アプリで広告文・画像・ショート動画を作れるので、Instagramの投稿・リールに使ったり、自分で広告を出してみたりできます。触る時間がない週は、おまかせのままで大丈夫です。']],
  cta:['7日間無料で始める','https://app.s-toru.com'],lp:'https://shittoruad-gif.github.io/makaseru-lp/',video:'https://www.youtube.com/watch?v=1Xa0zc1LI8g',doc:'makaseru',pair:['lp','keiro']},
 
 {id:'lp',stage:2,name:'LP制作サービス',status:'ready',
@@ -744,7 +756,7 @@ function ext(href,label,cls){return '<a class="'+(cls||'btn main arrow')+'" href
 
 /* ===== トップの組み立て ===== */
 (function(){
- var pains=[['SNSに使う時間がない。何を書けばいいか分からない','threads'],['広告を出したいが、何から始めればいいか分からない','makaseru'],['広告は自分で回したい。でも素材が作れない','makaseru'],['広告を見た人が、申し込まずに帰ってしまう','lp'],['チラシや広告の、どれが効いたのか分からない','keiro'],['電話対応に追われて、時間外の予約を逃している','salonkarte'],['口コミをお願いしても、書いてもらえない','kuchikomi'],['新人スタッフに、毎回一から教えている','handsnote'],['交通事故の患者様を、保険会社に言われるまま診ている','jiko']];
+ var pains=[['SNSに使う時間がない。何を書けばいいか分からない','threads'],['広告を任せたい。でも代行は高くて中身が見えない','makaseru'],['Instagramのリールや投稿まで、手が回らない','makaseru'],['広告を見た人が、申し込まずに帰ってしまう','lp'],['チラシや広告の、どれが効いたのか分からない','keiro'],['電話対応に追われて、時間外の予約を逃している','salonkarte'],['口コミをお願いしても、書いてもらえない','kuchikomi'],['新人スタッフに、毎回一から教えている','handsnote'],['交通事故の患者様を、保険会社に言われるまま診ている','jiko']];
  document.getElementById('painList').innerHTML=pains.map(function(p){return '<a class="pain" href="#'+p[1]+'"><span class="q">?</span><p>'+p[0]+'</p><span>'+BY[p[1]].name+'</span></a>'}).join('');
  document.getElementById('stageList').innerHTML=STAGES.map(function(st){
   return '<div class="stage"><div class="stage-label"><span class="n">STAGE '+st[0]+'</span><h3>'+st[1]+'</h3><p>'+st[2]+'</p></div><div class="cards">'+st[3].map(function(id){var s=BY[id];
@@ -758,7 +770,7 @@ function renderDetail(s){
  '<nav class="crumb"><a href="#services">すべてのサービス</a><span class="muted">/ '+esc(s.name)+'</span></nav>'+
  '<div class="d-hero"><div><p class="d-stg">'+'<span class="stg">STAGE '+(s.stage<7?s.stage:'ALL')+' ｜ '+STAGE_NAME[s.stage]+'</span></p><h1>'+esc(s.name)+'</h1><p class="tagline">'+esc(s.tl)+'</p><p class="one">'+esc(s.one)+'</p>'+
  '<div class="tags">'+s.tags.map(function(t){return '<span class="tag">'+t+'</span>'}).join('')+'<span class="tag blue">対象：'+esc(s.target)+'</span></div>'+
- '<div class="ctas">'+ext(s.cta[1],s.cta[0])+(s.cta[1]!==FORM?ext(FORM,'まず相談する','btn ghost'):'')+'</div></div>'+
+ '<div class="ctas">'+ext(ctaHref(s),s.cta[0])+(s.cta[1]!==FORM?ext(formUrl([s.id],s.name+'について相談したい'),'まず相談する','btn ghost'):'')+'</div></div>'+
  '<div class="detail-vis">'+MOCK[s.id]+'</div></div>'+
  '<section class="d-sec"><h2>こんなお悩みに</h2><ul class="d-pains">'+s.pains.map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></section>'+
  '<section class="d-sec"><h2>使い方の流れ</h2><ol class="flow">'+s.flow.map(function(f){return '<li><p><span class="who'+(f[0]==='you'?' you':'')+'">'+(f[0]==='you'?'お店':'しっとる・仕組み')+'</span>'+esc(f[1])+'</p></li>'}).join('')+'</ol></section>'+
@@ -774,7 +786,7 @@ function renderDetail(s){
   '<a href="'+DOC+s.doc+'-beginner.html" target="_blank" rel="noopener">はじめての方向けの資料</a>'+
  '</div></section>'+
  '<section class="d-sec"><h2>組み合わせると、もっと効きます</h2><div class="pair">'+s.pair.map(function(id){var p=BY[id];return '<a href="#'+id+'"><b>＋ '+p.name+'</b><span>'+p.tl+'</span></a>'}).join('')+'</div></section>'+
- '<div class="d-cta"><div><h2>'+esc(s.name)+'について、聞いてみませんか</h2><p>「うちの業種でも使える？」だけでも大丈夫です。Zoomで画面をお見せしながらご説明します。</p></div><div class="ctas">'+ext(s.cta[1],s.cta[0])+(s.cta[1]!==FORM?ext(FORM,'無料で相談する','btn ghost'):ext('#diagnose','ほかのサービスも診断','btn ghost').replace(' target="_blank" rel="noopener"',''))+'</div></div>'+
+ '<div class="d-cta"><div><h2>'+esc(s.name)+'について、聞いてみませんか</h2><p>「うちの業種でも使える？」だけでも大丈夫です。Zoomで画面をお見せしながらご説明します。</p></div><div class="ctas">'+ext(ctaHref(s),s.cta[0])+(s.cta[1]!==FORM?ext(formUrl([s.id],s.name+'について相談したい'),'無料で相談する','btn ghost'):ext('#diagnose','ほかのサービスも診断','btn ghost').replace(' target="_blank" rel="noopener"',''))+'</div></div>'+
  '<nav class="pager"><a href="#'+prev.id+'"><span>← 前のサービス</span><b>'+prev.name+'</b></a><a class="nx" href="#'+next.id+'"><span>次のサービス →</span><b>'+next.name+'</b></a></nav>'+
  '</div>';
  return h;
@@ -788,7 +800,7 @@ function route(){
   detail.innerHTML=renderDetail(s);home.hidden=true;detail.hidden=false;window.scrollTo(0,0);
   document.title=s.name+' ｜ しっとる';
   dockA.textContent='サービス一覧';dockA.href='#services';
-  dockB.textContent=s.cta[0];dockB.href=s.cta[1];
+  dockB.textContent=s.cta[0];dockB.href=ctaHref(s);
  }else{
   var wasDetail=!detail.hidden;
   home.hidden=false;detail.hidden=true;document.title='しっとる 集客サービス';
@@ -834,8 +846,8 @@ function drawQ(){
 function recommend(){
  var p=A[0],w=A[1],t=A[2],r=[],why={};
  function add(id,reason){if(r.indexOf(id)<0){r.push(id);why[id]=reason}}
- if(p==='know'){ if(w==='self'){add('makaseru','広告の素材づくりから分析まで、アプリで自分のペースで');add('threads','広告費をかけずに、毎日の投稿で知ってもらう')} else {add('makaseru','広告の作成から出稿・入れ替えまで、しっとるが代わりに');add('threads','広告と並行して、毎日の投稿で知ってもらう')} add('lp','広告を見た方の受け皿になるページ')}
- if(p==='sns'){add('threads','20の質問に答えるだけで、毎日の投稿が続く');add('keiro','投稿から公式LINEにつながった数を計測');add('lp','プロフィールのリンク先に置くページ')}
+ if(p==='know'){ if(w==='self'){add('makaseru','広告はおまかせしつつ、動画づくりや広告も自分で触れる');add('threads','広告費をかけずに、毎日の投稿で知ってもらう')} else {add('makaseru','広告の作成から出稿・入れ替えまで、しっとるに丸投げ');add('threads','広告と並行して、毎日の投稿で知ってもらう')} add('lp','広告を見た方の受け皿になるページ')}
+ if(p==='sns'){add('threads','20の質問に答えるだけで、毎日の投稿が続く');add('makaseru','Instagramのリール・投稿に使える動画も作れて、広告はおまかせ');add('keiro','投稿から公式LINEにつながった数を計測');add('lp','プロフィールのリンク先に置くページ')}
  if(p==='conv'){add('lp','内容・料金・選ぶ理由を、申し込みの順番で伝える');add('keiro','LINEでつながり、追加後の案内を自動で続ける'); add('makaseru','受け皿ができたら、広告で見てもらう数を増やす')}
  if(p==='measure'){add('keiro','広告・チラシ・SNSごとに、友だち追加を計測');add('makaseru','効いた経路に、広告の予算を寄せる')}
  if(p==='ops'){add('salonkarte',(t==='food'||t==='retail')?'予約制の席・メニューがあるお店なら、24時間ネット予約と顧客台帳をひとつに':'24時間ネット予約と予約表・顧客台帳をひとつに');add('keiro','予約前後の案内をLINEで自動化')}
@@ -854,8 +866,8 @@ function drawResult(){
  qBody.innerHTML='<div class="result-head"><p class="eyebrow">診断結果</p><h3>あなたのお店には、この順番がおすすめです</h3></div><div class="recs">'+
   rec.map(function(x,i){var s=BY[x[0]];return '<div class="rec'+(i===0?' top1':'')+'"><span class="rank n">'+(i+1)+'</span><h4>'+s.name+'</h4><p>'+esc(x[1])+'　'+(s.from==null?'（近日公開）':'<b class="n">'+s.fromLabel+'</b>'+s.unit)+'</p><a href="#'+s.id+'">くわしく →</a></div>'}).join('')+'</div>'+
   (hasEst&&total?'<div class="result-sum"><span class="muted">上位2つを始めた場合の目安</span><b class="n">月 '+yen(total)+'円〜</b><span class="note">税込・広告費などの実費は別途</span></div>':'')+
-  '<div class="result-act">'+ext(FORM,'この結果で無料相談する')+'<button type="button" class="btn ghost" id="qCopy">結果をコピー</button><button type="button" class="quiz-back" id="qRetry">もう一度診断する</button></div>'+
-  '<p class="note" style="margin-top:10px">フォームの「気になっているサービス」に「'+esc(names)+'」を選ぶと、ご相談がスムーズです。</p>';
+  '<div class="result-act">'+ext(formUrl(rec.map(function(x){return x[0]}),'1分診断の結果：'+names+(hasEst&&total?'（上位2つの目安 月'+yen(total)+'円〜）':''),A[2]),'この結果で無料相談する')+'<button type="button" class="btn ghost" id="qCopy">結果をコピー</button><button type="button" class="quiz-back" id="qRetry">もう一度診断する</button></div>'+
+  '<p class="note" style="margin-top:10px">フォームは、診断で出たサービスに印がついた状態で開きます。お名前とご連絡先を入れて送るだけです。</p>';
  document.getElementById('qRetry').addEventListener('click',function(){A=[];drawQ()});
  document.getElementById('qCopy').addEventListener('click',function(){var b=this,txt='しっとる1分診断の結果：'+names;
   try{navigator.clipboard.writeText(txt).then(function(){b.textContent='コピーしました'},function(){b.textContent=txt})}catch(e){b.textContent=txt}});
@@ -877,15 +889,16 @@ simList.innerHTML=SIM.map(function(r){var s=BY[r.id];return '<div class="sim-row
  (r.opts.length>1?'<select id="p-'+r.id+'" aria-label="'+s.name+'のプラン">'+r.opts.map(function(o,i){return '<option value="'+i+'">'+o[0]+'（'+yen(o[1])+'円）</option>'}).join('')+'</select>':'<span class="n">'+yen(r.opts[0][1])+'円</span>')+
  '<span class="hint">'+r.hint+'</span></div>'}).join('');
 function calc(){
- var os=document.getElementById('c-salonos').checked,m=0,ini=0,ad=0,picked=[];
+ var os=document.getElementById('c-salonos').checked,m=0,ini=0,ad=0,picked=[],pickedIds=[],pickedTxt=[];
  SIM.forEach(function(r){var row=simList.querySelector('[data-id="'+r.id+'"]'),c=document.getElementById('c-'+r.id),sel=document.getElementById('p-'+r.id),o=r.opts[sel?+sel.value:0];
   var off=os&&r.id!=='salonos';row.classList.toggle('off',off);
   if(!c.checked)return;
   if(r.id==='igads')ad+=o[2];
   if(off){return}
-  m+=o[1];ini+=(o[3]||0);picked.push(BY[r.id].name);
+  m+=o[1];ini+=(o[3]||0);picked.push(BY[r.id].name);pickedIds.push(r.id);pickedTxt.push(BY[r.id].name+(r.opts.length>1?'（'+o[0]+'）':''));
  });
  document.getElementById('simMonthly').innerHTML=yen(m)+'<small>円</small>';
+ document.getElementById('simCta').href=pickedIds.length?formUrl(pickedIds,'料金シミュレーターで選んだもの：'+pickedTxt.join('、')+'／毎月の目安 '+yen(m)+'円・初期費用 '+(ini?yen(ini)+'円〜':'0円')+'（税込）'):FORM;
  document.getElementById('simInit').textContent=ini?yen(ini)+'円〜':'0円';
  document.getElementById('simExt').textContent=ad?'広告費 '+yen(ad)+'円':(m?'LINE料金など':'なし');
  document.getElementById('simNote').textContent=os?'サロンOSには、全サービス・公式LINE制作・口コミアプリ・HANDS NOTE・毎月の勉強会が含まれます。':(picked.length?picked.join('＋')+' の目安です。':'左の一覧から、気になるサービスに印をつけてください。');
