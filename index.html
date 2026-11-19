@@ -301,7 +301,8 @@ footer{padding-block:40px 32px;font-size:13px;color:var(--sub);border-top:1px so
 .d-hero .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .d-hero .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:6px;align-items:start}
-.shots h3{grid-column:1/-1;font-size:15px;margin:10px 0 0}
+.shots-h{font-size:15px;margin:18px 0 8px}
+.shots.allph{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
 .shots figure{margin:0;background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .shots figure img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--line);background:#fff}
 .shots figure.ph img{max-width:250px;margin:0 auto}
@@ -631,8 +632,9 @@ jiko:'<div class="mk stk"><div class="pane"><div class="ttl">1件あたり（導
 };
 
 /* ===== サービスのデータ ===== */
+var SH={"threads":{"lead":"実際のアプリの画面です。お店の名前や投稿の文章は見本です。","g":[["ふだん使う画面",[["","assets/th-posts.jpg","投稿を確認して、承認する","できあがった投稿が一覧に並びます。「承認して投稿」を押すだけ。直したいときは編集、いらなければ削除できます。"],["","assets/th-richmenu.jpg","公式LINEのメニューから開ける","今日の投稿、コメント、投稿の成績まで、公式LINEの6つのボタンから開けます。"]]],["そのほかの画面",[["","assets/th-events.jpg","イベントの告知","開催日を入れると、当日までの告知投稿が日付つきで並びます。"],["ph","assets/th-home-sp.jpg","はじめの準備（スマホ）","やることが順番に出て、どこまで終わったかが％で分かります。"]]]]},"makaseru":{"lead":"実際のアプリの画面です（見本の整骨院で表示）。","g":[["お店が見る画面（パソコン・スマホ）",[["","assets/mk-dashboard.jpg","いまやることが1つ出る","画面のいちばん上に、次にやることが1つだけ出ます。できあがった広告案は、見て「承認」するだけです。"],["","assets/mk-omakase.jpg","お店の写真・動画からショート動画","撮る場面と秒数の指示が出ます。そのとおりにスマホで撮って選ぶと、テロップとナレーションつきの縦型動画になります。"],["","assets/mk-tools.jpg","便利ツール","コンセプト設計、キャッチコピー10案、規約チェック、広告費のシミュレーターをまとめています。"]]]]},"lp":{"lead":"業種ごとに作った見本のLPです（店名・料金・写真は見本）。スマホで開いたときの最初の画面です。","g":[["業種別の見本",[["ph","assets/lp-salon.jpg","ヘアサロン","落ち着いた色づかい。初回メニューと予約ボタンを最初の画面に。"],["ph","assets/lp-esthe.jpg","エステ","個室・女性専用の安心感を最初に伝える構成。"],["ph","assets/lp-pilates.jpg","ピラティス","体験レッスンの料金と特徴を、ひと目で。"],["ph","assets/lp-seitai.jpg","整体院","お悩みへの呼びかけから、初回体験のご案内へ。"]]]]},"keiro":{"lead":"実際の管理画面です（見本のお店のデータ）。","g":[["お店が見る画面",[["","assets/ke-dashboard.jpg","どこから友だちになったかが分かる","友だちの数、ブロック率、経路ごとの友だち追加数（Instagram広告・Google・チラシなど）が1画面に並びます。"],["","assets/ke-friends.jpg","友だち一人ひとりの流入経路","どの経路から登録した方かを、タグや反応の多さと一緒に一覧で見られます。"],["","assets/ke-steps.jpg","ステップ配信","友だち追加のあと、決めた順番でメッセージが自動で届きます。「チラシから来た方だけ」のように相手を分けられます。"]]]]},"kuchikomi":{"lead":"実際のアプリの画面です（見本の美容室で表示）。お客様がご自分のスマホで使います。","g":[["お客様が見る画面（スマホ・アプリ不要）",[["ph","assets/ku-top.jpg","はじめに確認","実際に来店した方だけが使えるよう、規約への同意と来店日の入力から始まります。"],["ph","assets/ku-steps.jpg","メニューと来店の目的を選ぶ","メニューや選択肢は、お店ごとに作ります。お客様は押して選ぶだけです。"],["ph","assets/ku-result.jpg","下書きが3案できる","選んだ内容から下書きが3案できます。自由に直してコピーし、Googleマップにはお客様ご本人が投稿します。"]]]]},"handsnote":{"lead":"実際の教材のページです。","g":[["教材の中身",[["","assets/hn-cover.jpg","毎号、1つのテーマを特集","vol.1は「腰痛の見立てと手技アプローチ実技」。"],["","assets/hn-check.jpg","鑑別チェック","「やり方 → 解釈 → 次の一手」の順でまとめています。"],["","assets/hn-gait.jpg","図解つき","歩行の見方など、動きは図で確かめられます。"]]]]},"jiko":{"lead":"ご導入いただいた院での、実際の取り組みの例です（院名は伏せています）。","g":[["自院アプリと院内の取り組み",[["ph","assets/jk-app-home.jpg","自院アプリのホーム画面","メニュー・予約・クーポン・スタンプ・協力企業のページをひとつに。"],["ph","assets/jk-app-coupon.jpg","アプリ限定クーポン","誕生月のクーポンなど、アプリの中でご案内します。"],["ph","assets/jk-app-stamp.jpg","スタンプカード","来院ごとにスタンプがたまります。"],["","assets/jk-machiai.jpg","待合スペースの協力企業コーナー","協力企業の広告やチラシを、この場所に無料で置かせていただいています。"]]]]},"salonos":{"lead":"サロンOSに含まれる仕組みの、実際の画面です（いずれも見本のデータ）。","g":[["含まれる仕組み",[["","assets/sk-board.jpg","予約・カルテ","ネット予約がそのまま予約表に入り、来店後はカルテを記録。"],["","assets/ke-dashboard.jpg","公式LINE・Keiro","どこから友だちになったかを計測し、配信まで。"],["","assets/th-posts.jpg","Threads投稿","できあがった投稿を確認して、承認するだけ。"],["","assets/mk-dashboard.jpg","マカセル（広告）","広告案の確認から成績の確認まで。"]]]]}};
 var S=[
-{id:'threads',stage:1,name:'Threads Studio',kana:'スレッズ スタジオ',status:'live',
+{id:'threads',shots:SH.threads,stage:1,name:'Threads Studio',kana:'スレッズ スタジオ',status:'live',
  tl:'Threadsを触ったことがなくても、公式LINEの中だけで毎日の投稿が続きます。',
  one:'20の質問に答えると、お店の事実だけを材料に投稿を作り、反応の良い時間に自動で出します。確認から書き直しまで、公式LINEの中で終わります。',
  target:'飲食・美容・治療院・教室・小売・サービス業など、業種を問わず',
@@ -646,7 +648,7 @@ var S=[
  faq:[['毎日、私は何をすればいいですか？','確認してから出す設定なら、LINEに届いた投稿カードの「これで投稿する」を押すだけです。確認なしの設定なら、何もしなくて構いません。'],['投稿の内容が嘘になりませんか？','登録した事実だけを材料にし、裏づけのない実績や大げさな表現は機械的に取り除きます。美容・整体など表現のルールが厳しい業種では、価格や効果の断定も自動で言い換えます。'],['Threadsのアカウントがありません','Instagramのアカウントがあれば作れます。開設マニュアルをお送りし、設定が止まっていれば毎朝「次にやること」が届きます。']],
  cta:['7日間無料で試す','https://threads-studio.com'],lp:'https://shittoruad-gif.github.io/threads-studio-lp/',video:'https://www.youtube.com/watch?v=XVB4AbYvm_g',doc:'threads',pair:['lp','keiro']},
 
-{id:'makaseru',stage:1,name:'マカセル',status:'live',
+{id:'makaseru',shots:SH.makaseru,stage:1,name:'マカセル',status:'live',
  tl:'広告運用は、しっとるに丸投げ。動画づくりやInstagramの運用は、自分でもできる。',
  one:'Instagram・Facebook広告の作成・出稿・入れ替えは、しっとるの担当がサポートするので、基本はおまかせで回ります。そのうえで、お店の写真・動画からショート動画を作ったり、自分で広告を出してみたりもできるので、広告とInstagramの投稿・リール運用を同時に進められます。',
  target:'業種を問わず、広告を任せつつ、Instagramも育てたいお店・事業者',
@@ -659,7 +661,7 @@ var S=[
  res:[['約1/3','広告のクリック単価（7月の手作業の広告 平均約57円 → マカセルで作った広告 平均約18円）'],['14円','いちばん良かった広告のクリック単価（整体・1日500円・2026年10〜11月）'],['約29円','ご利用中の広告アカウント4件の平均クリック単価（直近7日間・すべてのクリック・2026年11月11日時点）'],['100店舗以上','広告運用の経験から作った、広告づくりの型を搭載']],  faq:[['広告は丸投げできますか？','できます。お店の登録とMetaとの接続はしっとるが行い、どのプランでも広告・ショート動画を作って出す・入れ替えるところまで、しっとるが担当します。'],['動画の素材は何を用意すれば？','お店で撮った動画がいちばんです（なければ写真）。撮り方の案内が画面と公式LINEに自動で届きます。'],['自分でも触れますか？','はい。アプリで広告文・画像・ショート動画を作れるので、Instagramの投稿・リールに使ったり、自分で広告を出してみたりできます。触る時間がない週は、おまかせのままで大丈夫です。']],
  cta:['7日間無料で始める','https://app.s-toru.com'],lp:'https://shittoruad-gif.github.io/makaseru-lp/',video:'https://www.youtube.com/watch?v=1Xa0zc1LI8g',doc:'makaseru',pair:['lp','keiro']},
 
-{id:'lp',stage:2,name:'LP制作サービス',status:'ready',
+{id:'lp',shots:SH.lp,stage:2,name:'LP制作サービス',status:'ready',
  tl:'業種と強みを教えていただくだけで、申し込みにつながる1ページに。',
  one:'広告やSNSで興味を持った方が、内容・料金・選ぶ理由を確かめて、そのまま相談や予約に進めるページを作ります。お悩み、解決のしかた、選ばれる理由、料金、よくあるご質問、申し込みの順で組み立てます。',
  target:'開業・リニューアル、広告の受け皿が必要な店舗',
@@ -672,7 +674,7 @@ var S=[
  res:[['約8%','広告から来たページで、予約ボタンまで進んだ割合（4,792回中402回・2026年10月8日〜11月4日）'],['11セクション','申し込みまでの順番を決めた「型」で制作']],  faq:[['何を用意すればいいですか？','業種・サービス内容・お客様像が分かれば作れます。強み・実績・料金・写真があると、さらに良く仕上がります。'],['広告とセットで頼めますか？','はい。マカセル（Instagram・Facebook広告）と組み合わせると、広告からページ、LINEまでがつながり、効果まで測れます。']],
  cta:['無料で相談する',FORM],lp:'https://shittoruad-gif.github.io/lp-seisaku-lp/',video:'https://www.youtube.com/watch?v=8TNZOQdsL20',doc:'lp',pair:['makaseru','keiro']},
 
-{id:'keiro',stage:3,name:'Keiro・公式LINE構築',kana:'ケイロ',status:'live',
+{id:'keiro',shots:SH.keiro,stage:3,name:'Keiro・公式LINE構築',kana:'ケイロ',status:'live',
  tl:'どの宣伝が効いたか、もう迷わない。公式LINEを“集客の道具”に。',
  one:'広告・チラシ・SNSごとに専用のリンクやQRを用意し、友だち追加のきっかけを記録します。登録後は「はじめて／2回目以上」を自動で振り分け、ステップ配信やリマインダで案内を続けます。公式LINEがない方は、開設から作ります。',
  target:'飲食・美容・治療院・教室・小売・サービス業など、業種を問わず',
@@ -705,7 +707,7 @@ var S=[
  res:[['8件','1日の照合で見つかった「LINEで約束したのに予約表に無い」予約'],['0→8件','未記入リストと夜の通知を入れてから2日間で記入されたカルテ']],  faq:[['今の予約サイトから乗り換えられますか？','大手予約サービスから予約データと顧客台帳を移して切り替えた例があります。移行日までは今の仕組みと併用できます。'],['スタッフが覚えられるか不安です','本番に影響しない「練習モード」と、画面写真つきのマニュアルがあります。導入時に90分の研修も行います。']],
  cta:['無料デモを相談する',FORM],lp:'https://shittoruad-gif.github.io/salonkarte-lp/',doc:'salonkarte',pair:['keiro','kuchikomi']},
 
-{id:'kuchikomi',stage:5,name:'口コミ作成アプリ',status:'ready',
+{id:'kuchikomi',shots:SH.kuchikomi,stage:5,name:'口コミ作成アプリ',status:'ready',
  tl:'お客様は質問に答えるだけ。Googleマップ用の口コミの下書きが完成します。',
  one:'お店専用に、質問項目・選択肢・デザインまで作り込んだアプリを制作します。ステマ規制とGoogleのルールに配慮した設計で、「必ず治る」などの使えない表現は投稿前に自動でチェックします。',
  target:'飲食店・美容・治療院・教室・小売など、Googleマップで選ばれたいお店',
@@ -718,7 +720,7 @@ var S=[
  faq:[['やらせ・サクラになりませんか？','なりません。実体験であること・店舗関係者でないことを最初に確認し、内容の指定や見返りはありません。投稿するかどうかもお客様が決めます。'],['口コミは必ず増えますか？','件数のお約束はできません。お約束できるのは「書きたいけれど面倒」という負担を大きく減らすことです。']],
  cta:['無料で相談する',FORM],lp:'https://kuchikomi.s-toru.com/',video:'https://www.youtube.com/watch?v=-hAvdYUfeCg',doc:'kuchikomi',pair:['salonkarte','keiro']},
 
-{id:'handsnote',stage:6,name:'月刊 HANDS NOTE',status:'soon',
+{id:'handsnote',shots:SH.handsnote,stage:6,name:'月刊 HANDS NOTE',status:'soon',
  tl:'新人教育の実技を、院単位で使い放題にする月刊の教材です。',
  one:'部位ごとの評価・手技・運動指導をスライドで解説した教材を、院のスタッフ全員で使えます。腰・首肩・膝・足首・股関節・歩行の6冊・444ページが完成しています。',
  target:'スタッフを抱える整骨院・整体院・治療院',
@@ -731,7 +733,7 @@ var S=[
  res:[['6冊・444ページ','完成している教材（腰・首肩・膝・足首・股関節・歩行）']],  faq:[['スタッフの人数分の契約が必要ですか？','いりません。院単位で使い放題です。']],
  cta:['無料サンプルを請求する',FORM],lp:'https://shittoruad-gif.github.io/hands-note-lp/',doc:'handsnote',pair:['jiko','salonos']},
 
-{id:'jiko',stage:6,name:'交通事故コンサルティング',status:'live',
+{id:'jiko',shots:SH.jiko,stage:6,name:'交通事故コンサルティング',status:'live',
  tl:'保険会社への対応と患者様へのご説明を、はじめから終わりまで。',
  one:'交通事故の患者様を、最後まで診られるようにするための伴走型コンサルティングです。治療開始までの7段階を、つまずいている箇所から順にお教えします。代表が直接担当します。',
  target:'整骨院・接骨院・鍼灸院',
@@ -745,7 +747,7 @@ var S=[
  faq:[['痛くないところを痛いことにするのですか？','しません。診断書に書かれていることを、書かれているとおりに請求できるようにするのが仕事です。'],['部位を正しく取ると、保険会社に目を付けられませんか？','根拠のある請求は、保険会社との正常なやり取りです。']],
  cta:['無料で相談する',FORM],lp:'https://shittoruad-gif.github.io/jiko-consul-lp/',doc:'jiko',pair:['handsnote','salonkarte']},
 
-{id:'salonos',stage:7,name:'サロンOS',status:'ready',
+{id:'salonos',shots:SH.salonos,stage:7,name:'サロンOS',status:'ready',
  tl:'しっとるの全サービスと公式LINE制作に、毎月の勉強会をつけたオールインワン。',
  one:'ツールを別々に契約する代わりに、ひとつの契約で全サービスを使えます。月1回30分のZOOM勉強会で、数字の見方とその月の打ち手の決め方を、参加するお店のみなさんと学びます。',
  target:'予約制・来店型のお店全般（美容・治療院・教室など）',
@@ -794,7 +796,7 @@ function renderDetail(s){
  '<div class="ctas">'+ext(ctaHref(s),s.cta[0])+(s.cta[1]!==FORM?ext(formUrl([s.id],s.name+'について相談したい'),'まず相談する','btn ghost'):'')+'</div></div>'+
  '<div class="detail-vis">'+MOCK[s.id]+'</div></div>'+
  '<section class="d-sec"><h2>こんなお悩みに</h2><ul class="d-pains">'+s.pains.map(function(p){return '<li>'+esc(p)+'</li>'}).join('')+'</ul></section>'+
- (s.shots?(function(){var n=0;return '<section class="d-sec"><h2>実際の画面</h2><p class="muted">'+esc(s.shots.lead)+'</p><div class="shots">'+s.shots.g.map(function(g){return '<h3>'+esc(g[0])+'</h3>'+g[1].map(function(f){n++;return '<figure class="'+f[0]+'"><img loading="lazy" src="'+f[1]+'" alt="'+esc(f[2])+'の画面"><figcaption><b><span class="no">'+n+'</span>'+esc(f[2])+'</b>'+esc(f[3])+'</figcaption></figure>'}).join('')}).join('')+'</div></section>'})():'')+
+ (s.shots?(function(){var n=0;return '<section class="d-sec"><h2>実際の画面</h2><p class="muted">'+esc(s.shots.lead)+'</p>'+s.shots.g.map(function(g){var ph=g[1].filter(function(f){return f[0]==='ph'}).length;return '<h3 class="shots-h">'+esc(g[0])+'</h3><div class="shots'+(ph===g[1].length&&ph>2?' allph':'')+'">'+g[1].map(function(f){n++;return '<figure class="'+f[0]+'"><img loading="lazy" src="'+f[1]+'" alt="'+esc(f[2])+'の画面"><figcaption><b><span class="no">'+n+'</span>'+esc(f[2])+'</b>'+esc(f[3])+'</figcaption></figure>'}).join('')+'</div>'}).join('')+'</section>'})():'')+
  '<section class="d-sec"><h2>使い方の流れ</h2><ol class="flow">'+s.flow.map(function(f){return '<li><p><span class="who'+(f[0]==='you'?' you':'')+'">'+(f[0]==='you'?'お店':'しっとる・仕組み')+'</span>'+esc(f[1])+'</p></li>'}).join('')+'</ol></section>'+
  '<section class="d-sec"><h2>お届けするもの</h2><ul class="outs">'+s.outs.map(function(o){return '<li><span>'+esc(o)+'</span></li>'}).join('')+'</ul></section>';
  if(s.res){h+='<section class="d-sec"><h2>実績</h2><div class="res">'+s.res.map(function(r){return '<div class="stat"><div class="v n" style="font-size:30px">'+r[0]+'</div><p>'+r[1]+'</p></div>'}).join('')+'</div><p class="note">一部のお店の実測例で、同じ結果をお約束するものではありません。</p></section>'}
